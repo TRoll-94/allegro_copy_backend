@@ -1,0 +1,18 @@
+[
+  {
+    "model": "users.UserType",
+    "pk": 1,
+    "fields": {
+      "name": "Merchant",
+      "code": "merchant"
+    }
+  },
+  {
+    "model": "users.UserType",
+    "pk": 2,
+    "fields": {
+      "name": "Customer",
+      "code": "customer"
+    }
+  }
+]

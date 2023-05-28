@@ -1,0 +1,21 @@
+services:
+
+    db:
+        networks:
+            - ollegro_backend-app-network
+
+    backend:
+        command: "sh dev.sh"
+        ports:
+            - "8000:8000"
+        volumes:
+            - ./ollegro_backend:/code
+        env_file:
+            - dev.env
+        depends_on:
+            - db
+        networks:
+            - ollegro_backend-app-network
+
+networks:
+    ollegro_backend-app-network:

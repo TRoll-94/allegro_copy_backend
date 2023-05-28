@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0c145311-3940-4731-b4ee-f41fa21ff8cb" name="Changes" comment="init">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/ollegro_backend.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dev.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ollegro_backend/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ollegro_backend/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ollegro_backend/manage.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ollegro_backend/ollegro_backend/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ollegro_backend/ollegro_backend/asgi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ollegro_backend/ollegro_backend/license.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ollegro_backend/ollegro_backend/settings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ollegro_backend/ollegro_backend/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ollegro_backend/ollegro_backend/wsgi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ollegro_backend/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ollegro_backend/users/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ollegro_backend/users/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ollegro_backend/users/consts.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ollegro_backend/users/fixtures/user_types.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ollegro_backend/users/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ollegro_backend/users/migrations/0002_user_user_type.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ollegro_backend/users/migrations/0003_alter_user_user_type.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ollegro_backend/users/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ollegro_backend/users/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ollegro_backend/users/serializers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ollegro_backend/users/signals.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ollegro_backend/users/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ollegro_backend/users/urls.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" module-name="ollegro_backend" is-module-sdk="true">
+    <envs>
+      <env key="DB_HOST" value="localhost" />
+      <env key="DB_NAME" value="test" />
+      <env key="DB_PASSWORD" value="test" />
+      <env key="DB_PORT" value="5431" />
+      <env key="DB_USER" value="test" />
+      <env key="DEBUG" value="1" />
+      <env key="DJANGO_SETTINGS_MODULE" value="ollegro_backend.settings" />
+      <env key="PROJECT_VERSION" value="DEV" />
+      <env key="PYTHONUNBUFFERED" value="1" />
+      <env key="SECRET_KEY" value="'django-insecure-jhy6(=wz^mskwhs0je)p2u9@5u#t*exfngbq=+w205w@x-=5i0'" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+    <option name="myUseModuleSdk" value="true" />
+    <option name="myModuleName" value="ollegro_backend" />
+    <option name="myEnvs">
+      <map>
+        <entry key="DB_HOST" value="localhost" />
+        <entry key="DB_NAME" value="test" />
+        <entry key="DB_PASSWORD" value="test" />
+        <entry key="DB_PORT" value="5431" />
+        <entry key="DB_USER" value="test" />
+        <entry key="DEBUG" value="1" />
+        <entry key="DJANGO_SETTINGS_MODULE" value="ollegro_backend.settings" />
+        <entry key="PROJECT_VERSION" value="DEV" />
+        <entry key="PYTHONUNBUFFERED" value="1" />
+        <entry key="SECRET_KEY" value="'django-insecure-jhy6(=wz^mskwhs0je)p2u9@5u#t*exfngbq=+w205w@x-=5i0'" />
+      </map>
+    </option>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/ollegro_backend/.gitignore" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ollegro_backend/ollegro_backend/license.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ollegro_backend/users/serializers.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ollegro_backend/users/urls.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ollegro_backend/users/views.py" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2QPpTLejQivRiU4NKyqENVFl2xM" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/apis/study/lesson/mvc_project/ollegro_backend/ollegro_backend/ollegro_backend/settings.py",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "settings.editor.selected.configurable": "PyConsoleConfigurable.Django Console"
+  }
+}]]></component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="ollegro_backend" is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="ollegro_backend" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ollegro_backend/users" />
+      <recent name="$PROJECT_DIR$/ollegro_backend" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ollegro_backend" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="ollegro_backend" type="Python.DjangoServer" factoryName="Django server">
+      <module name="ollegro_backend" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ollegro_backend" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0c145311-3940-4731-b4ee-f41fa21ff8cb" name="Changes" comment="" />
+      <created>1685265077772</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1685265077772</updated>
+      <workItem from="1685265084189" duration="2373000" />
+      <workItem from="1685267483597" duration="198000" />
+      <workItem from="1685267702739" duration="1054000" />
+      <workItem from="1685268795573" duration="7888000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init" />
+    <option name="LAST_COMMIT_MESSAGE" value="init" />
+  </component>
+</project>

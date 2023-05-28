@@ -1,0 +1,27 @@
+version: "3"
+services:
+
+    db:
+        image: postgres:12.10-alpine
+        expose:
+            - 5432
+        ports:
+            - "5431:5432"
+        volumes:
+            - ./.docker/postgresql/:/var/lib/postgresql/data
+        environment:
+            - POSTGRES_USER=test
+            - POSTGRES_PASSWORD=test
+            - POSTGRES_DB=test
+        profiles:
+            - 'dev'
+
+    backend:
+        container_name: ollegro_backend-app-backend
+        command: sh -c  "python manage.py collectstatic --no-input && python manage.py compilemessages --no-input && gunicorn --workers 8 --bind 0.0.0.0:5000 ollegro_backend.wsgi"
+        build:
+            context: ./ollegro_backend
+            dockerfile: Dockerfile
+        volumes:
+            - ./ollegro_backend/static:/code/ollegro_backend/static
+        restart: unless-stopped
