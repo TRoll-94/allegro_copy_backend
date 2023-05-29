@@ -5,39 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c145311-3940-4731-b4ee-f41fa21ff8cb" name="Changes" comment="init">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/ollegro_backend.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dev.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.dev.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ollegro_backend/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ollegro_backend/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ollegro_backend/manage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ollegro_backend/ollegro_backend/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ollegro_backend/ollegro_backend/asgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ollegro_backend/ollegro_backend/license.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ollegro_backend/ollegro_backend/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ollegro_backend/ollegro_backend/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ollegro_backend/ollegro_backend/wsgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ollegro_backend/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ollegro_backend/users/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ollegro_backend/users/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ollegro_backend/users/consts.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ollegro_backend/users/fixtures/user_types.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ollegro_backend/users/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ollegro_backend/users/migrations/0002_user_user_type.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ollegro_backend/users/migrations/0003_alter_user_user_type.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ollegro_backend/users/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ollegro_backend/users/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ollegro_backend/users/serializers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ollegro_backend/users/signals.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ollegro_backend/users/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ollegro_backend/users/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ollegro_backend/products/serializers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ollegro_backend/products/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ollegro_backend/ollegro_backend/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/ollegro_backend/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +59,8 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/ollegro_backend/.gitignore" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ollegro_backend/ollegro_backend/license.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ollegro_backend/ollegro_backend/settings.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ollegro_backend/products/models.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ollegro_backend/users/serializers.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ollegro_backend/users/urls.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ollegro_backend/users/views.py" root0="FORCE_HIGHLIGHTING" />
@@ -166,8 +139,16 @@
       <workItem from="1685265084189" duration="2373000" />
       <workItem from="1685267483597" duration="198000" />
       <workItem from="1685267702739" duration="1054000" />
-      <workItem from="1685268795573" duration="7888000" />
+      <workItem from="1685268795573" duration="13501000" />
     </task>
+    <task id="LOCAL-00001" summary="init">
+      <created>1685281453438</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1685281453438</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
