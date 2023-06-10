@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c145311-3940-4731-b4ee-f41fa21ff8cb" name="Changes" comment="deleted print">
+    <list default="true" id="0c145311-3940-4731-b4ee-f41fa21ff8cb" name="Changes" comment="Changed product property model">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ollegro_backend/products/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/products/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ollegro_backend/products/license.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/products/license.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ollegro_backend/products/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/products/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ollegro_backend/products/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/products/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ollegro_backend/products/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/products/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +153,7 @@
       <workItem from="1685268795573" duration="13531000" />
       <workItem from="1685452085907" duration="18000" />
       <workItem from="1686236145426" duration="1632000" />
-      <workItem from="1686417181796" duration="5996000" />
+      <workItem from="1686417181796" duration="6994000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1685281453438</created>
@@ -180,7 +183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686423307329</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Changed product property model">
+      <created>1686423439593</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1686423439593</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,6 +212,7 @@
     <MESSAGE value="f" />
     <MESSAGE value="Add new model and view to category" />
     <MESSAGE value="deleted print" />
-    <option name="LAST_COMMIT_MESSAGE" value="deleted print" />
+    <MESSAGE value="Changed product property model" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed product property model" />
   </component>
 </project>

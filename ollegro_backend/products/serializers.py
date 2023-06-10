@@ -1,4 +1,3 @@
-
 from rest_framework import serializers
 
 from products.models import ProductProperty, Category, Product
@@ -15,11 +14,17 @@ class CategorySerializer(serializers.ModelSerializer):
 
 class ProductPropertySerializer(serializers.ModelSerializer):
     """ Serializer for products properties """
+    category = serializers.PrimaryKeyRelatedField(queryset=Category.objects.all())
 
     class Meta:
         """ Meta """
         model = ProductProperty
         fields = "__all__"
+        extra_kwargs = {
+            'name': {'required': True},
+            'code': {'required': True},
+            'value': {'required': True},
+        }
 
 
 class ProductSerializer(serializers.ModelSerializer):

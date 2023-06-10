@@ -1,6 +1,7 @@
 from rest_framework.permissions import BasePermission
+from rest_framework.exceptions import PermissionDenied
 
-from products.models import Category
+from products.models import Category, ProductProperty
 from users.consts import DefaultUserTypes
 
 
@@ -13,7 +14,18 @@ class IsCategoryEmpty(BasePermission):
         properties = obj.properties.count()
         if products == 0 and properties == 0:
             return True
-        return False
+        raise PermissionDenied(detail='Category is not empty')
+
+
+class isProductPropertyEmpty(BasePermission):
+    """ product property is empty """
+
+    def has_object_permission(self, request, view, obj: ProductProperty):
+        """ has perm """
+        product = obj.products.count()
+        if product == 0:
+            return True
+        raise PermissionDenied(detail='Product property is not empty')
 
 
 class IsMerchant(BasePermission):
