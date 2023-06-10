@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c145311-3940-4731-b4ee-f41fa21ff8cb" name="Changes" comment="Changed product property model">
+    <list default="true" id="0c145311-3940-4731-b4ee-f41fa21ff8cb" name="Changes" comment="Added view to product property model">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ollegro_backend/products/license.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/products/license.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ollegro_backend/products/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/products/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ollegro_backend/products/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/products/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ollegro_backend/products/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/products/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ollegro_backend/products/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/products/views.py" afterDir="false" />
@@ -64,6 +65,9 @@
     <setting file="file://$PROJECT_DIR$/ollegro_backend/ollegro_backend/settings.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ollegro_backend/products/license.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ollegro_backend/products/migrations/0002_category_code_alter_product_category.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ollegro_backend/products/migrations/0003_alter_category_code.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ollegro_backend/products/migrations/0004_alter_category_options_alter_productproperty_options_and_more.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ollegro_backend/products/migrations/0005_product_price_alter_product_sku.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ollegro_backend/products/models.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ollegro_backend/products/serializers.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ollegro_backend/products/services/product_service.py" root0="FORCE_HIGHLIGHTING" />
@@ -75,6 +79,7 @@
     <setting file="file://$PROJECT_DIR$/ollegro_backend/users/serializers.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ollegro_backend/users/urls.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ollegro_backend/users/views.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ollegro_backend/venv/lib/python3.11/site-packages/rest_framework/relations.py" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -153,7 +158,7 @@
       <workItem from="1685268795573" duration="13531000" />
       <workItem from="1685452085907" duration="18000" />
       <workItem from="1686236145426" duration="1632000" />
-      <workItem from="1686417181796" duration="6994000" />
+      <workItem from="1686417181796" duration="14967000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1685281453438</created>
@@ -190,7 +195,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686423439593</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added view to product property model">
+      <created>1686424630895</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1686424630895</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,6 +225,18 @@
     <MESSAGE value="Add new model and view to category" />
     <MESSAGE value="deleted print" />
     <MESSAGE value="Changed product property model" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed product property model" />
+    <MESSAGE value="Added view to product property model" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added view to product property model" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ollegro_backend/venv/lib/python3.11/site-packages/rest_framework/serializers.py</url>
+          <line>525</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

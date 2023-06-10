@@ -1,3 +1,4 @@
+from django.core.exceptions import ValidationError
 from django.db import models
 
 from users.models import User
@@ -31,7 +32,7 @@ class ProductProperty(models.Model):
     class Meta:
         verbose_name = 'Product property'
         verbose_name_plural = 'Product properties'
-        unique_together = ('code', 'category')
+        unique_together = ('code', 'value', 'category')
 
 
 class Product(models.Model):
@@ -41,9 +42,10 @@ class Product(models.Model):
     category = models.ForeignKey(
         Category, on_delete=models.DO_NOTHING, related_name='products', verbose_name='Product category'
     )
+    price = models.DecimalField(max_digits=9, decimal_places=2, verbose_name='Price')
     owner = models.ForeignKey(User, on_delete=models.DO_NOTHING, verbose_name='Product owner')
     total = models.IntegerField(verbose_name='Total products')
-    total_reserved = models.IntegerField(verbose_name='Reserved products')
+    total_reserved = models.IntegerField(verbose_name='Reserved products', default=0)
     sku = models.CharField(verbose_name='Product code')
     properties = models.ManyToManyField(ProductProperty, related_name='products', verbose_name='Properties')
 

@@ -3,9 +3,10 @@ from rest_framework.viewsets import ViewSet, ModelViewSet
 from rest_framework.permissions import AllowAny, SAFE_METHODS
 
 from ollegro_backend.consts import RestActions
-from products.license import IsMerchant, IsCategoryEmpty, isProductPropertyEmpty
-from products.models import Category, ProductProperty
-from products.serializers import CategorySerializer, ProductPropertySerializer
+from products.license import IsMerchant, IsCategoryEmpty, isProductPropertyEmpty, IsProductOwner
+from products.models import Category, ProductProperty, Product
+from products.serializers import CategorySerializer, ProductPropertySerializer, ProductCreateSerializer, \
+    ProductSerializer
 
 
 class CategoryView(ModelViewSet):
@@ -35,3 +36,31 @@ class ProductPropertyView(ModelViewSet):
             return isProductPropertyEmpty(), IsMerchant()
         return IsMerchant(),
 
+
+class ProductView(ModelViewSet):
+    """ product view """
+
+    def create(self, request, *args, **kwargs):
+        """ perform create """
+        request.data['owner'] = request.user.id
+        return super(ProductView, self).create(request, *args, **kwargs)
+
+    def get_queryset(self):
+        """ get queryset """
+        if self.request.method in SAFE_METHODS:
+            return Product.objects.all()
+        return Product.objects.all()
+
+    def get_serializer_class(self):
+        """ get serializer """
+        if self.request.method in SAFE_METHODS:
+            return ProductSerializer
+        return ProductCreateSerializer
+
+    def get_permissions(self):
+        """ get perm """
+        if self.request.method in SAFE_METHODS:
+            return AllowAny(),
+        elif self.action in [RestActions.destroy.value, RestActions.partial_update.value]:
+            return IsProductOwner(), IsMerchant()
+        return IsMerchant(),

@@ -1,6 +1,6 @@
 from django.urls import path
 
-from products.views import CategoryView, ProductPropertyView
+from products.views import CategoryView, ProductPropertyView, ProductView
 
 category_list = CategoryView.as_view(actions={
     'get': 'list',
@@ -23,12 +23,22 @@ product_property_retrieve = ProductPropertyView.as_view(actions={
     'delete': 'destroy',
 })
 
+product_list = ProductView.as_view(actions={
+    'get': 'list',
+    'post': 'create',
+})
+product_retrieve = ProductView.as_view(actions={
+    'get': 'retrieve',
+    'patch': 'partial_update',
+    'delete': 'destroy',
+})
+
 
 urlpatterns = [
+    path('', product_list, name='product_list'),
+    path('<int:pk>', product_retrieve, name='product_retrieve'),
     path('category/', category_list, name='category_list'),
     path('category/<int:pk>', category_retrieve, name='category_retrieve'),
     path('properties/', product_property_list, name='product_property_list'),
     path('properties/<int:pk>', product_property_retrieve, name='product_property_retrieve'),
 ]
-
-
