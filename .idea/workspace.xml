@@ -4,18 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c145311-3940-4731-b4ee-f41fa21ff8cb" name="Changes" comment="f">
-      <change afterPath="$PROJECT_DIR$/ollegro_backend/ollegro_backend/consts.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ollegro_backend/products/license.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ollegro_backend/products/services/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ollegro_backend/products/services/product_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ollegro_backend/ollegro_backend/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/ollegro_backend/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ollegro_backend/products/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/products/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ollegro_backend/products/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/products/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ollegro_backend/products/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/products/urls.py" afterDir="false" />
+    <list default="true" id="0c145311-3940-4731-b4ee-f41fa21ff8cb" name="Changes" comment="Add new model and view to category">
       <change beforePath="$PROJECT_DIR$/ollegro_backend/products/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/products/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ollegro_backend/users/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/users/serializers.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +149,7 @@
       <workItem from="1685268795573" duration="13531000" />
       <workItem from="1685452085907" duration="18000" />
       <workItem from="1686236145426" duration="1632000" />
-      <workItem from="1686417181796" duration="5863000" />
+      <workItem from="1686417181796" duration="5888000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1685281453438</created>
@@ -175,7 +165,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685353016399</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add new model and view to category">
+      <created>1686423293869</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1686423293869</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,6 +192,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
     <MESSAGE value="f" />
-    <option name="LAST_COMMIT_MESSAGE" value="f" />
+    <MESSAGE value="Add new model and view to category" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add new model and view to category" />
   </component>
 </project>

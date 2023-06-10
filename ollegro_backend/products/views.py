@@ -15,7 +15,6 @@ class CategoryView(ModelViewSet):
 
     def get_permissions(self):
         """ perm """
-        print(self.action)
         if self.action in RestActions.safe():
             return AllowAny(),
         if self.action == RestActions.destroy.value:
