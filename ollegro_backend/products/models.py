@@ -11,6 +11,10 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = 'Category'
+        verbose_name_plural = 'Categories'
+
 
 class ProductProperty(models.Model):
     """ Product property """
@@ -23,6 +27,11 @@ class ProductProperty(models.Model):
 
     def __str__(self):
         return f"{self.name} {self.category}"
+
+    class Meta:
+        verbose_name = 'Product property'
+        verbose_name_plural = 'Product properties'
+        unique_together = ('code', 'category')
 
 
 class Product(models.Model):
