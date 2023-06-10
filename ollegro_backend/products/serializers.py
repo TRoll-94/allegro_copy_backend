@@ -1,6 +1,7 @@
-from gettext import Catalog
 
 from rest_framework import serializers
+
+from products.models import ProductProperty, Category, Product
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -8,7 +9,23 @@ class CategorySerializer(serializers.ModelSerializer):
 
     class Meta:
         """ Meta """
+        model = Category
         fields = '__all__'
-        model = Catalog
 
 
+class ProductPropertySerializer(serializers.ModelSerializer):
+    """ Serializer for products properties """
+
+    class Meta:
+        """ Meta """
+        model = ProductProperty
+        fields = "__all__"
+
+
+class ProductSerializer(serializers.ModelSerializer):
+    """ Serializer for products categories """
+
+    class Meta:
+        """ Meta """
+        model = Product
+        fields = '__all__'
