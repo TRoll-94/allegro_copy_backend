@@ -1,3 +1,5 @@
+from django.contrib.postgres.aggregates import ArrayAgg
+from django.db.models import Sum
 from rest_framework.decorators import action
 from rest_framework.viewsets import ViewSet, ModelViewSet
 from rest_framework.permissions import AllowAny, SAFE_METHODS
@@ -6,7 +8,7 @@ from ollegro_backend.consts import RestActions
 from products.license import IsMerchant, IsCategoryEmpty, isProductPropertyEmpty, IsProductOwner
 from products.models import Category, ProductProperty, Product
 from products.serializers import CategorySerializer, ProductPropertySerializer, ProductCreateSerializer, \
-    ProductSerializer
+    ProductSerializer, ProductBySkuSerializer
 
 
 class CategoryView(ModelViewSet):
@@ -48,13 +50,13 @@ class ProductView(ModelViewSet):
     def get_queryset(self):
         """ get queryset """
         if self.request.method in SAFE_METHODS:
-            return Product.objects.all()
+            return Product.objects.values('sku').annotate(products=ArrayAgg('id'), total=Sum('total'))
         return Product.objects.all()
 
     def get_serializer_class(self):
         """ get serializer """
         if self.request.method in SAFE_METHODS:
-            return ProductSerializer
+            return ProductBySkuSerializer
         return ProductCreateSerializer
 
     def get_permissions(self):

@@ -88,10 +88,32 @@ class ProductCreateSerializer(serializers.ModelSerializer):
 
 
 class ProductSerializer(serializers.ModelSerializer):
-    """ Serializer for products categories """
-    properties = ProductPropertySerializer(many=True)
+    """ product serializer """
+
+    class Meta:
+        """ meta """
+        model = Product
+        fields = '__all__'
+
+
+class ProductBySkuSerializer(serializers.ModelSerializer):
+    """ Serializer for products by sku """
+    sku = serializers.CharField()
+    total = serializers.IntegerField()
+    category = serializers.SerializerMethodField()
+    products = serializers.SerializerMethodField()
+
+    def get_products(self, value):
+        """ products """
+        data = Product.objects.filter(id__in=value['products'])
+        return ProductSerializer(instance=data, many=True).data
+
+    def get_category(self, value):
+        """ category """
+        category = Category.objects.filter(products__in=value['products']).last()
+        return CategorySerializer(instance=category).data
 
     class Meta:
         """ Meta """
         model = Product
-        fields = '__all__'
+        fields = ['sku', 'total', 'category', 'products']
