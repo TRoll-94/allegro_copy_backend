@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c145311-3940-4731-b4ee-f41fa21ff8cb" name="Changes" comment="Added validations to create\update product">
+    <list default="true" id="0c145311-3940-4731-b4ee-f41fa21ff8cb" name="Changes" comment="Added retrieve method to products">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ollegro_backend/products/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/products/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ollegro_backend/products/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/products/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ollegro_backend/products/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/products/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -155,7 +155,7 @@
       <workItem from="1685268795573" duration="13531000" />
       <workItem from="1685452085907" duration="18000" />
       <workItem from="1686236145426" duration="1632000" />
-      <workItem from="1686417181796" duration="21358000" />
+      <workItem from="1686417181796" duration="22017000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1685281453438</created>
@@ -213,7 +213,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686434537445</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added retrieve method to products">
+      <created>1686439213511</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1686439213511</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,7 +246,8 @@
     <MESSAGE value="Added view to product property model" />
     <MESSAGE value="Added view to add, delete, update product" />
     <MESSAGE value="Added validations to create\update product" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added validations to create\update product" />
+    <MESSAGE value="Added retrieve method to products" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added retrieve method to products" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

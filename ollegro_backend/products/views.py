@@ -41,6 +41,17 @@ class ProductPropertyView(ModelViewSet):
 
 class ProductView(ModelViewSet):
     """ product view """
+    lookup_field = 'pk'
+
+    @action(methods=['get'], detail=False)
+    def list_sku(self, request, *args, **kwargs):
+        """ list by sku """
+        return super(ProductView, self).list(request, *args, **kwargs)
+
+    @action(methods=['get'], detail=True)
+    def retrieve_sku(self, request, *args, **kwargs):
+        """ products by sku """
+        return super(ProductView, self).retrieve(request, *args, **kwargs)
 
     def create(self, request, *args, **kwargs):
         """ perform create """
@@ -49,14 +60,19 @@ class ProductView(ModelViewSet):
 
     def get_queryset(self):
         """ get queryset """
-        if self.request.method in SAFE_METHODS:
+        if self.action in ['list_sku', 'retrieve_sku']:
+            self.lookup_field = 'sku'
             return Product.objects.values('sku').annotate(products=ArrayAgg('id'), total=Sum('total'))
+        if self.request.method in SAFE_METHODS:
+            return Product.objects.all()
         return Product.objects.all()
 
     def get_serializer_class(self):
         """ get serializer """
-        if self.request.method in SAFE_METHODS:
+        if self.action in ['list_sku', 'retrieve_sku']:
             return ProductBySkuSerializer
+        if self.request.method in SAFE_METHODS:
+            return ProductSerializer
         return ProductCreateSerializer
 
     def get_permissions(self):
