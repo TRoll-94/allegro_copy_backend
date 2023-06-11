@@ -6,3 +6,7 @@ psycopg2-binary
 pydantic
 djangorestframework-simplejwt==5.2.2
 django-filter==23.2
+django-payments==2.0.0
+mercadopago==2.2.0
+stripe==5.4.0
+suds-py3==1.4.5.0

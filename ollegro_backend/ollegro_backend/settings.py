@@ -42,10 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
+    'payments',
 
     # apps
     'users.apps.UsersConfig',
-    'products.apps.ProductsConfig'
+    'products.apps.ProductsConfig',
+    'ollegro_payments.apps.OllegroPaymentsConfig',
 ]
 
 MIDDLEWARE = [
@@ -147,6 +149,22 @@ CSRF_TRUSTED_ORIGINS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+PAYMENT_HOST = 'localhost:8000'
+PAYMENT_USES_SSL = False
+PAYMENT_MODEL = 'ollegro_payments.Payment'
+PAYMENT_VARIANTS = {
+    'default': (
+        'payments.authorizenet.AuthorizeNetProvider',
+        {
+            'login_id': '25ZRm57fTjVL',
+            'transaction_key': '9b86882gR9KRNbSp',
+            # 'key': 'SIMON',
+            'endpoint': 'https://test.authorize.net/gateway/transact.dll'
+        },
+    )
+}
 
 
 REST_FRAMEWORK = {

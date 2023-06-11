@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c145311-3940-4731-b4ee-f41fa21ff8cb" name="Changes" comment="Added retrieve method to products">
+    <list default="true" id="0c145311-3940-4731-b4ee-f41fa21ff8cb" name="Changes" comment="Added sku retrieve method to products">
+      <change afterPath="$PROJECT_DIR$/ollegro_backend/ollegro_payments/templates/payment.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ollegro_backend/ollegro_payments/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ollegro_backend/products/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/products/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ollegro_backend/products/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/products/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ollegro_backend/ollegro_backend/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/ollegro_backend/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ollegro_backend/ollegro_backend/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/ollegro_backend/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ollegro_backend/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +63,8 @@
     <setting file="file://$PROJECT_DIR$/ollegro_backend/ollegro_backend/consts.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ollegro_backend/ollegro_backend/license.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ollegro_backend/ollegro_backend/settings.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ollegro_backend/ollegro_backend/urls.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ollegro_backend/ollegro_payments/models.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ollegro_backend/products/license.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ollegro_backend/products/migrations/0002_category_code_alter_product_category.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ollegro_backend/products/migrations/0003_alter_category_code.py" root0="FORCE_HIGHLIGHTING" />
@@ -155,7 +160,7 @@
       <workItem from="1685268795573" duration="13531000" />
       <workItem from="1685452085907" duration="18000" />
       <workItem from="1686236145426" duration="1632000" />
-      <workItem from="1686417181796" duration="22017000" />
+      <workItem from="1686417181796" duration="30332000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1685281453438</created>
@@ -220,7 +225,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686439213511</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added sku retrieve method to products">
+      <created>1686472274466</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1686472274466</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,7 +259,8 @@
     <MESSAGE value="Added view to add, delete, update product" />
     <MESSAGE value="Added validations to create\update product" />
     <MESSAGE value="Added retrieve method to products" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added retrieve method to products" />
+    <MESSAGE value="Added sku retrieve method to products" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added sku retrieve method to products" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
