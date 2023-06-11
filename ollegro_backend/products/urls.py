@@ -37,6 +37,7 @@ product_retrieve = ProductView.as_view(actions={
 urlpatterns = [
     path('', product_list, name='product_list'),
     path('<int:pk>', product_retrieve, name='product_retrieve'),
+    path('buy/<int:pk>', ProductView.as_view({'post': 'buy_product'}), name='product_buy'),
     path('sku/', ProductView.as_view({'get': 'list_sku'})),
     path('sku/<int:sku>', ProductView.as_view({'get': 'retrieve_sku'})),
     path('category/', category_list, name='category_list'),

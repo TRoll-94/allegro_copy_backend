@@ -1,6 +1,8 @@
 from django.contrib.postgres.aggregates import ArrayAgg
 from django.db.models import Sum
+from rest_framework import status
 from rest_framework.decorators import action
+from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet, ModelViewSet
 from rest_framework.permissions import AllowAny, SAFE_METHODS
 
@@ -9,6 +11,7 @@ from products.license import IsMerchant, IsCategoryEmpty, isProductPropertyEmpty
 from products.models import Category, ProductProperty, Product
 from products.serializers import CategorySerializer, ProductPropertySerializer, ProductCreateSerializer, \
     ProductSerializer, ProductBySkuSerializer
+from products.services.buy_product import BuyProduct
 
 
 class CategoryView(ModelViewSet):
@@ -53,6 +56,14 @@ class ProductView(ModelViewSet):
         """ products by sku """
         return super(ProductView, self).retrieve(request, *args, **kwargs)
 
+    @action(methods=['post'], detail=True)
+    def buy_product(self, request, *args, **kwargs):
+        """ buy product """
+        product = self.get_object()
+        service = BuyProduct(product, request.user)
+        url_to_pay = service.buy()
+        return Response({'result': url_to_pay}, status=status.HTTP_201_CREATED)
+
     def create(self, request, *args, **kwargs):
         """ perform create """
         request.data['owner'] = request.user.id
@@ -71,13 +82,13 @@ class ProductView(ModelViewSet):
         """ get serializer """
         if self.action in ['list_sku', 'retrieve_sku']:
             return ProductBySkuSerializer
-        if self.request.method in SAFE_METHODS:
+        if self.request.method in SAFE_METHODS or self.action == 'buy_product':
             return ProductSerializer
         return ProductCreateSerializer
 
     def get_permissions(self):
         """ get perm """
-        if self.request.method in SAFE_METHODS:
+        if self.request.method in SAFE_METHODS or self.action == 'buy_product':
             return AllowAny(),
         elif self.action in [RestActions.destroy.value, RestActions.partial_update.value]:
             return IsProductOwner(), IsMerchant()

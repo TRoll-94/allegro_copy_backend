@@ -1,5 +1,71 @@
+<head>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: 0 auto;
+            padding-top: 20vh;
+            font-family: Arial, sans-serif;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        /* Обновленные стили для блока "Expiration" */
+        .input-group {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .input-group select {
+            flex-grow: 1;
+            margin-right: 10px;
+        }
+
+        .input-group select:last-child {
+            margin-right: 0;
+        }
+
+        #id_expiration_1, #id_expiration_0 {
+            width: 193px;
+        }
+
+
+    </style>
+</head>
+<body>
 <form action="{{ form.action }}" method="{{ form.method }}">
     {% csrf_token %}
     {{ form.as_p }}
-    <p><input type="submit" value="Proceed" /></p>
+    <p><input type="submit" value="Proceed"/></p>
 </form>
+</body>
