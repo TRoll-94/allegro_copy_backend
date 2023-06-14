@@ -10,3 +10,5 @@ django-payments==2.0.0
 mercadopago==2.2.0
 stripe==5.4.0
 suds-py3==1.4.5.0
+pyyaml
+uritemplate

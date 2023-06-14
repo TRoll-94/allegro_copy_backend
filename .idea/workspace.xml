@@ -4,17 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c145311-3940-4731-b4ee-f41fa21ff8cb" name="Changes" comment="Added payment method">
-      <change afterPath="$PROJECT_DIR$/ollegro_backend/ollegro_payments/license.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ollegro_backend/ollegro_payments/serializers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ollegro_backend/products/services/buy_product.py" afterDir="false" />
+    <list default="true" id="0c145311-3940-4731-b4ee-f41fa21ff8cb" name="Changes" comment="Release payments">
+      <change afterPath="$PROJECT_DIR$/ollegro_backend/ollegro_backend/templates/swagger-ui.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ollegro_backend/ollegro_payments/templates/redoc.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ollegro_backend/ollegro_payments/templates/swagger-ui.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ollegro_backend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ollegro_backend.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ollegro_backend/ollegro_payments/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/ollegro_payments/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ollegro_backend/ollegro_payments/templates/payment.html" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/ollegro_payments/templates/payment.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ollegro_backend/ollegro_payments/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/ollegro_payments/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ollegro_backend/ollegro_payments/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/ollegro_payments/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ollegro_backend/products/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/products/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ollegro_backend/products/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/products/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ollegro_backend/ollegro_backend/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/ollegro_backend/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ollegro_backend/products/license.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/products/license.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ollegro_backend/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +54,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -100,6 +99,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
@@ -166,7 +166,12 @@
       <workItem from="1685268795573" duration="13531000" />
       <workItem from="1685452085907" duration="18000" />
       <workItem from="1686236145426" duration="1632000" />
-      <workItem from="1686417181796" duration="37396000" />
+      <workItem from="1686417181796" duration="38033000" />
+      <workItem from="1686588837625" duration="40000" />
+      <workItem from="1686645356258" duration="2032000" />
+      <workItem from="1686653484061" duration="780000" />
+      <workItem from="1686655569074" duration="3254000" />
+      <workItem from="1686686207895" duration="3081000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1685281453438</created>
@@ -252,7 +257,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686493353444</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Release payments">
+      <created>1686501320778</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1686501320778</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -281,7 +293,8 @@
     <MESSAGE value="Added retrieve method to products" />
     <MESSAGE value="Added sku retrieve method to products" />
     <MESSAGE value="Added payment method" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added payment method" />
+    <MESSAGE value="Release payments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Release payments" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
