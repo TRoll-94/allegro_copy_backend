@@ -1,16 +1,18 @@
 from django.contrib.postgres.aggregates import ArrayAgg
 from django.db.models import Sum
+from django.utils import timezone
 from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet, ModelViewSet
-from rest_framework.permissions import AllowAny, SAFE_METHODS
+from rest_framework.permissions import AllowAny, SAFE_METHODS, IsAuthenticated, IsAdminUser
 
+from ollegro_backend.celery import app
 from ollegro_backend.consts import RestActions
 from products.license import IsMerchant, IsCategoryEmpty, isProductPropertyEmpty, IsProductOwner
-from products.models import Category, ProductProperty, Product, Lot
+from products.models import Category, ProductProperty, Product, Lot, Rate
 from products.serializers import CategorySerializer, ProductPropertySerializer, ProductCreateSerializer, \
-    ProductSerializer, ProductBySkuSerializer, LotSerializer
+    ProductSerializer, ProductBySkuSerializer, LotSerializer, RateSerializer
 from products.services.buy_product import BuyProduct
 
 
@@ -103,7 +105,18 @@ class LotView(ModelViewSet):
     def create(self, request, *args, **kwargs):
         """ perform create """
         request.data['owner'] = request.user.id
-        return super(LotView, self).create(request, *args, **kwargs)
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        result = serializer.data
+        lot = Lot.objects.get(id=result['id'])
+        current_time = timezone.now()
+        remaining_time = lot.end_at - current_time
+        countdown = remaining_time.total_seconds()+1
+        app.send_task("products.tasks.close_overdue_lot", kwargs={'lot_id': result['id']}, countdown=countdown)
+        print(countdown)
+        return Response(result, status=status.HTTP_201_CREATED, headers=headers)
 
     def get_permissions(self):
         """ get perm """
@@ -112,4 +125,22 @@ class LotView(ModelViewSet):
         elif self.action in [RestActions.destroy.value, RestActions.partial_update.value]:
             return IsProductOwner(), IsMerchant()
         return IsMerchant(),
+
+
+class RateView(ModelViewSet):
+    """ rate view """
+    queryset = Rate.objects.all()
+    serializer_class = RateSerializer
+
+    def create(self, request, *args, **kwargs):
+        """ perform create """
+        request.data['customer'] = request.user.id
+        return super(RateView, self).create(request, *args, **kwargs)
+
+    def get_permissions(self):
+        """ get perm """
+        if self.action in [RestActions.destroy.value, RestActions.partial_update.value]:
+            return IsAdminUser(),
+        return IsAuthenticated(),
+
 

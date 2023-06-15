@@ -1,6 +1,6 @@
 from django.urls import path
 
-from products.views import CategoryView, ProductPropertyView, ProductView, LotView
+from products.views import CategoryView, ProductPropertyView, ProductView, LotView, RateView
 
 category_list = CategoryView.as_view(actions={
     'get': 'list',
@@ -43,6 +43,15 @@ lot_retrieve = LotView.as_view(actions={
     'delete': 'destroy',
 })
 
+rate_list = RateView.as_view(actions={
+    'get': 'list',
+    'post': 'create',
+})
+rate_retrieve = RateView.as_view(actions={
+    'get': 'retrieve',
+    'patch': 'partial_update',
+    'delete': 'destroy',
+})
 
 urlpatterns = [
     path('', product_list, name='product_list'),
@@ -55,4 +64,6 @@ urlpatterns = [
     path('properties/', product_property_list, name='product_property_list'),
     path('lot/<int:pk>', lot_retrieve, name='lot_retrieve'),
     path('lot/', lot_list, name='lot_list'),
+    path('rate/<int:pk>', rate_retrieve, name='rate_retrieve'),
+    path('rate/', rate_list, name='rate_list'),
 ]

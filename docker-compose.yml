@@ -16,6 +16,69 @@ services:
         profiles:
             - 'dev'
 
+    redis:
+        image: redis:6.2.6-alpine
+        hostname: redis
+        env_file:
+            - dev.env
+        networks:
+            - ollegro_backend-app-network
+
+    redis-celery:
+        image: redis:6.2.6-alpine
+        hostname: redis-celery
+        env_file:
+            - dev.env
+        networks:
+            - ollegro_backend-app-network
+
+    rabbit:
+        image: rabbitmq:3.9.12-alpine
+        hostname: rabbit
+        container_name: ollegro_backend-app-rabbitmq
+        volumes:
+            - ./.docker/rabbitmq/:/var/lib/rabbitmq/mnesia
+            - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
+        restart: on-failure
+        expose:
+            - 5672
+        ports:
+            - "5672:5672"
+        env_file:
+            - dev.env
+        networks:
+            - ollegro_backend-app-network
+
+    celery:
+        container_name: ollegro_backend-app-celery
+        command: sh -c "celery -A ollegro_backend worker --loglevel=INFO --concurrency=10 -n worker1.%h -B"
+        build:
+            context: ./ollegro_backend
+            dockerfile: Dockerfile
+        depends_on:
+            - backend
+            - rabbit
+        env_file:
+            - dev.env
+        networks:
+            - ollegro_backend-app-network
+
+    celery_worker:
+        container_name: ollegro_backend-app-celery_worker
+        hostname: celery_worker
+        command: sh -c "celery -A ollegro_backend.celery worker -l info --concurrency=10 -n worker1.%h -B"
+        build:
+            context: ./ollegro_backend
+            dockerfile: Dockerfile
+        depends_on:
+            - backend
+            - rabbit
+        restart: on-failure
+        env_file:
+            - dev.env
+        networks:
+            - ollegro_backend-app-network
+    
     backend:
         container_name: ollegro_backend-app-backend
         command: sh -c  "python manage.py collectstatic --no-input && python manage.py compilemessages --no-input && gunicorn --workers 8 --bind 0.0.0.0:5000 ollegro_backend.wsgi"

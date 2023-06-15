@@ -65,8 +65,8 @@ class Lot(models.Model):
     class LotStatuses(models.TextChoices):
         """ lot statuses """
         OPEN = "OPEN", _("Open")
-        PROCESS = "PROCESS", _("Process")
         CLOSED = "CLOSED", _("Closed")
+        FAIL = "FAIL", _("Fail")
 
     name = models.CharField(max_length=32)
     start_price = models.DecimalField(max_digits=9, decimal_places=2)
@@ -74,8 +74,9 @@ class Lot(models.Model):
     sale_price = models.DecimalField(max_digits=9, decimal_places=2, default=100)
     description = models.TextField()
     owner = models.ForeignKey(User, on_delete=models.DO_NOTHING)
-    start_at = models.DateTimeField(auto_now=True)
-    end_at = models.DateTimeField()
+    start_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    end_at = models.DateTimeField(auto_now_add=False, auto_now=False)
     status = models.CharField(max_length=12, choices=LotStatuses.choices, default=LotStatuses.OPEN)
 
 
@@ -84,5 +85,6 @@ class Rate(models.Model):
 
     sum = models.DecimalField(max_digits=9, decimal_places=2)
     customer = models.ForeignKey(User, on_delete=models.DO_NOTHING)
-    lot = models.ForeignKey(Lot, on_delete=models.DO_NOTHING)
+    lot = models.ForeignKey(Lot, on_delete=models.DO_NOTHING, related_name='rates')
+    created_at = models.DateTimeField(auto_now_add=True)
 

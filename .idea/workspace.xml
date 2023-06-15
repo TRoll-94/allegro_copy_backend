@@ -4,13 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c145311-3940-4731-b4ee-f41fa21ff8cb" name="Changes" comment="Added swagger">
+    <list default="true" id="0c145311-3940-4731-b4ee-f41fa21ff8cb" name="Changes" comment="added lots">
+      <change afterPath="$PROJECT_DIR$/ollegro_backend/ollegro_backend/celery.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ollegro_backend/products/signals.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ollegro_backend/products/tasks.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ollegro_backend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev.env" beforeDir="false" afterPath="$PROJECT_DIR$/dev.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ollegro_backend/ollegro_backend/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/ollegro_backend/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ollegro_backend/products/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/products/apps.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ollegro_backend/products/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/products/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ollegro_backend/products/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/products/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ollegro_backend/products/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/products/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ollegro_backend/products/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/products/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ollegro_backend/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,8 +58,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -67,6 +74,7 @@
     <setting file="file://$PROJECT_DIR$/ollegro_backend/ollegro_backend/urls.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ollegro_backend/ollegro_payments/migrations/0002_payment_customer.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ollegro_backend/ollegro_payments/models.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ollegro_backend/products/apps.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ollegro_backend/products/license.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ollegro_backend/products/migrations/0002_category_code_alter_product_category.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ollegro_backend/products/migrations/0003_alter_category_code.py" root0="FORCE_HIGHLIGHTING" />
@@ -77,6 +85,8 @@
     <setting file="file://$PROJECT_DIR$/ollegro_backend/products/serializers.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ollegro_backend/products/services/buy_product.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ollegro_backend/products/services/product_service.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ollegro_backend/products/signals.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ollegro_backend/products/tasks.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ollegro_backend/products/urls.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ollegro_backend/products/views.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ollegro_backend/requirements.txt" root0="FORCE_HIGHLIGHTING" />
@@ -96,18 +106,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/apis/study/lesson/mvc_project/ollegro_backend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;PyConsoleConfigurable.Django Console&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/apis/study/lesson/mvc_project/ollegro_backend/ollegro_backend/ollegro_backend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "settings.editor.selected.configurable": "PyConsoleConfigurable.Django Console"
   }
-}</component>
+}]]></component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings module-name="ollegro_backend" is-module-sdk="true">
@@ -118,6 +128,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ollegro_backend/ollegro_backend" />
       <recent name="$PROJECT_DIR$/ollegro_backend/users" />
       <recent name="$PROJECT_DIR$/ollegro_backend" />
       <recent name="$PROJECT_DIR$" />
@@ -171,7 +182,7 @@
       <workItem from="1686653484061" duration="780000" />
       <workItem from="1686655569074" duration="3254000" />
       <workItem from="1686686207895" duration="19724000" />
-      <workItem from="1686825986954" duration="2471000" />
+      <workItem from="1686825986954" duration="8596000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1685281453438</created>
@@ -271,7 +282,21 @@
       <option name="project" value="LOCAL" />
       <updated>1686724417688</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="added lots">
+      <created>1686828628533</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1686828628533</updated>
+    </task>
+    <task id="LOCAL-00016" summary="added lots">
+      <created>1686828631746</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1686828631746</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,7 +327,8 @@
     <MESSAGE value="Added payment method" />
     <MESSAGE value="Release payments" />
     <MESSAGE value="Added swagger" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added swagger" />
+    <MESSAGE value="added lots" />
+    <option name="LAST_COMMIT_MESSAGE" value="added lots" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

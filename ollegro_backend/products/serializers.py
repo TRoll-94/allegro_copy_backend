@@ -2,7 +2,7 @@ from django.db.models import Count
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 
-from products.models import ProductProperty, Category, Product, Lot
+from products.models import ProductProperty, Category, Product, Lot, Rate
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -119,8 +119,40 @@ class ProductBySkuSerializer(serializers.ModelSerializer):
         fields = ['sku', 'total', 'category', 'products']
 
 
+
+class RateSerializer(serializers.ModelSerializer):
+    """ rate serial """
+
+    def validate(self, data):
+        """
+        validate
+        """
+        lot = data.get('lot')
+        sum = data.get('sum')
+
+        # Validate is lot still active
+        if lot.status != Lot.LotStatuses.OPEN:
+            raise serializers.ValidationError('Lot is inactive.')
+
+        if lot.start_price > sum:
+            raise serializers.ValidationError('Rate too small.')
+
+        max_rate = lot.rates.order_by('sum', 'created_at').last()
+        if max_rate is not None and max_rate.sum >= sum:
+            print(max_rate, max_rate.sum)
+            raise serializers.ValidationError('Rate too small 2')
+
+        return data
+
+    class Meta:
+        """ meta """
+        model = Rate
+        fields = '__all__'
+
+
 class LotSerializer(serializers.ModelSerializer):
     """ lot serial """
+    rates = RateSerializer(many=True, read_only=True)
 
     class Meta:
         """ meta """
