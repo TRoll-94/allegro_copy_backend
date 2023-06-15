@@ -2,7 +2,7 @@ from django.db.models import Count
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 
-from products.models import ProductProperty, Category, Product
+from products.models import ProductProperty, Category, Product, Lot
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -117,3 +117,12 @@ class ProductBySkuSerializer(serializers.ModelSerializer):
         """ Meta """
         model = Product
         fields = ['sku', 'total', 'category', 'products']
+
+
+class LotSerializer(serializers.ModelSerializer):
+    """ lot serial """
+
+    class Meta:
+        """ meta """
+        model = Lot
+        fields = '__all__'

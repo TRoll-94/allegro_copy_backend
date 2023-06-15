@@ -8,9 +8,9 @@ from rest_framework.permissions import AllowAny, SAFE_METHODS
 
 from ollegro_backend.consts import RestActions
 from products.license import IsMerchant, IsCategoryEmpty, isProductPropertyEmpty, IsProductOwner
-from products.models import Category, ProductProperty, Product
+from products.models import Category, ProductProperty, Product, Lot
 from products.serializers import CategorySerializer, ProductPropertySerializer, ProductCreateSerializer, \
-    ProductSerializer, ProductBySkuSerializer
+    ProductSerializer, ProductBySkuSerializer, LotSerializer
 from products.services.buy_product import BuyProduct
 
 
@@ -93,3 +93,23 @@ class ProductView(ModelViewSet):
         elif self.action in [RestActions.destroy.value, RestActions.partial_update.value]:
             return IsProductOwner(), IsMerchant()
         return IsMerchant(),
+
+
+class LotView(ModelViewSet):
+    """ lot view """
+    queryset = Lot.objects.all()
+    serializer_class = LotSerializer
+
+    def create(self, request, *args, **kwargs):
+        """ perform create """
+        request.data['owner'] = request.user.id
+        return super(LotView, self).create(request, *args, **kwargs)
+
+    def get_permissions(self):
+        """ get perm """
+        if self.request.method in SAFE_METHODS or self.action == 'buy_product':
+            return AllowAny(),
+        elif self.action in [RestActions.destroy.value, RestActions.partial_update.value]:
+            return IsProductOwner(), IsMerchant()
+        return IsMerchant(),
+

@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c145311-3940-4731-b4ee-f41fa21ff8cb" name="Changes" comment="Release payments">
-      <change afterPath="$PROJECT_DIR$/ollegro_backend/ollegro_backend/templates/swagger-ui.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ollegro_backend/ollegro_payments/templates/redoc.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ollegro_backend/ollegro_payments/templates/swagger-ui.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ollegro_backend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ollegro_backend.iml" afterDir="false" />
+    <list default="true" id="0c145311-3940-4731-b4ee-f41fa21ff8cb" name="Changes" comment="Added swagger">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ollegro_backend/ollegro_backend/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/ollegro_backend/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ollegro_backend/products/license.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/products/license.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ollegro_backend/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ollegro_backend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ollegro_backend/products/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/products/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ollegro_backend/products/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/products/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ollegro_backend/products/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/products/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ollegro_backend/products/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ollegro_backend/products/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +72,7 @@
     <setting file="file://$PROJECT_DIR$/ollegro_backend/products/migrations/0003_alter_category_code.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ollegro_backend/products/migrations/0004_alter_category_options_alter_productproperty_options_and_more.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ollegro_backend/products/migrations/0005_product_price_alter_product_sku.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ollegro_backend/products/migrations/0010_alter_lot_final_rate.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ollegro_backend/products/models.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ollegro_backend/products/serializers.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ollegro_backend/products/services/buy_product.py" root0="FORCE_HIGHLIGHTING" />
@@ -171,7 +170,8 @@
       <workItem from="1686645356258" duration="2032000" />
       <workItem from="1686653484061" duration="780000" />
       <workItem from="1686655569074" duration="3254000" />
-      <workItem from="1686686207895" duration="3081000" />
+      <workItem from="1686686207895" duration="19724000" />
+      <workItem from="1686825986954" duration="2471000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1685281453438</created>
@@ -264,7 +264,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686501320778</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Added swagger">
+      <created>1686724417688</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1686724417688</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -294,7 +301,8 @@
     <MESSAGE value="Added sku retrieve method to products" />
     <MESSAGE value="Added payment method" />
     <MESSAGE value="Release payments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Release payments" />
+    <MESSAGE value="Added swagger" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added swagger" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
