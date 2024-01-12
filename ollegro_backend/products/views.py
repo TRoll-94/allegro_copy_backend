@@ -1,6 +1,8 @@
 from django.contrib.postgres.aggregates import ArrayAgg
 from django.db.models import Sum
 from django.utils import timezone
+from django_filters import filters
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.response import Response
@@ -34,6 +36,8 @@ class ProductPropertyView(ModelViewSet):
     """ product property view """
     queryset = ProductProperty.objects.all()
     serializer_class = ProductPropertySerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['category_id', 'code', 'name', 'value']
 
     def get_permissions(self):
         """ perm """
@@ -84,7 +88,7 @@ class ProductView(ModelViewSet):
         """ get serializer """
         if self.action in ['list_sku', 'retrieve_sku']:
             return ProductBySkuSerializer
-        if self.request.method in SAFE_METHODS or self.action == 'buy_product':
+        if self.request and self.request.method in SAFE_METHODS or self.action == 'buy_product':
             return ProductSerializer
         return ProductCreateSerializer
 
@@ -115,7 +119,6 @@ class LotView(ModelViewSet):
         remaining_time = lot.end_at - current_time
         countdown = remaining_time.total_seconds()+1
         app.send_task("products.tasks.close_overdue_lot", kwargs={'lot_id': result['id']}, countdown=countdown)
-        print(countdown)
         return Response(result, status=status.HTTP_201_CREATED, headers=headers)
 
     def get_permissions(self):

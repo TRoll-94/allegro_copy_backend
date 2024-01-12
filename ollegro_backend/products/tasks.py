@@ -24,7 +24,6 @@ def close_lot(**kwargs):
     else:
         remaining_time = lot.end_at - current_time
         countdown = remaining_time.total_seconds()+1
-        print(f'FFFFFFFFFF: {countdown}')
         app.send_task("products.tasks.close_overdue_lot", kwargs={'lot_id': lot_id}, countdown=countdown)
 
     print('Here in lot overdue check # 1')

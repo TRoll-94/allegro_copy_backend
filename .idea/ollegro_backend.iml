@@ -17,7 +17,7 @@
       <sourceFolder url="file://$MODULE_DIR$/ollegro_backend" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/ollegro_backend/venv" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Python 3.11 (ollegro_backend)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PyDocumentationSettings">

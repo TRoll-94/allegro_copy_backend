@@ -2,7 +2,7 @@ version: "3"
 services:
 
     db:
-        image: postgres:12.10-alpine
+        image: postgres:13-alpine
         expose:
             - 5432
         ports:
@@ -24,16 +24,8 @@ services:
         networks:
             - ollegro_backend-app-network
 
-    redis-celery:
-        image: redis:6.2.6-alpine
-        hostname: redis-celery
-        env_file:
-            - dev.env
-        networks:
-            - ollegro_backend-app-network
-
     rabbit:
-        image: rabbitmq:3.9.12-alpine
+        image: rabbitmq:3.12-alpine
         hostname: rabbit
         container_name: ollegro_backend-app-rabbitmq
         volumes:

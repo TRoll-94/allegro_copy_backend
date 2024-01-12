@@ -38,7 +38,7 @@ class ProductCreateSerializer(serializers.ModelSerializer):
         validate
         """
         sku = data.get('sku')
-        category_id = data.get('category_id')
+        category = data.get('category')
         owner_id = data.get('owner_id')
         properties = data.get('properties', [])
 
@@ -55,7 +55,7 @@ class ProductCreateSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError('Duplicate property codes found in the product.')
 
         # Checking a product with the same SKU in different categories
-        with_difference_categories = Product.objects.filter(sku=sku).exclude(category_id=category_id)
+        with_difference_categories = Product.objects.filter(sku=sku).exclude(category_id=category.id)
         if with_difference_categories.exists():
             raise serializers.ValidationError('Duplicate SKU in different categories.')
 
@@ -65,10 +65,10 @@ class ProductCreateSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError('Duplicate SKU among different users.')
 
         # Check if properties belong to the selected category
-        properties_count = ProductProperty.objects.filter(id__in=properties).values('category_id').annotate(
+        properties_count = ProductProperty.objects.filter(id__in=[p.id for p in properties]).values('category_id').annotate(
             count=Count('id'))
         for property_count in properties_count:
-            if property_count['category_id'] != category_id or property_count['count'] != len(properties):
+            if property_count['category_id'] != category.id or property_count['count'] != len(properties):
                 raise serializers.ValidationError(
                     'One or more product properties do not belong to the selected category.')
 

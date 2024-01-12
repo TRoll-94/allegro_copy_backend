@@ -14,27 +14,55 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+import yaml
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
 from rest_framework.schemas import get_schema_view
+from rest_framework.schemas.openapi import SchemaGenerator
+from django.http import HttpResponse
+from django.conf import settings
+from pathlib import Path
+
+from rest_framework.views import APIView
 
 urlpatterns = [
     path('api/admin/', admin.site.urls),
     path('api/user/', include('users.urls')),
     path('api/products/', include('products.urls')),
     path('api/payments/', include('ollegro_payments.urls')),
-    path('api/openapi', get_schema_view(
+]
+
+
+class TOSSchemaGenerator(SchemaGenerator):
+    http_method_names = ['get']
+    def get_schema(self, *args, **kwargs):
+        with open(Path(settings.BASE_DIR, './openapi-schema.yml'), 'rb') as schema_file:
+            yaml_data = yaml.safe_load(schema_file)
+        schema = {
+            'openapi': '3.0.2',
+            'info': self.get_info(),
+            'paths': yaml_data.get('paths', {}),
+            'components': yaml_data.get('components', {}),
+        }
+
+        return schema
+
+
+urlpatterns += [
+    # path('api/openapi-v2', TOSSchemaGenerator.as_view(), name='openapi-schema-v2'),
+    path('api/openapi-v2', get_schema_view(
         title="Your Project",
-        description="API for all things …",
-        version="1.0.0"
-    ), name='openapi-schema'),
+        description="API for all things",
+        version="1.0.2",
+        generator_class=TOSSchemaGenerator,
+    ), name='openapi-schema-v2'),
     path('api/swagger-ui/', TemplateView.as_view(
         template_name='swagger-ui.html',
-        extra_context={'schema_url':'openapi-schema'}
+        extra_context={'schema_url':'openapi-schema-v2'}
     ), name='swagger-ui'),
     path('api/redoc/', TemplateView.as_view(
         template_name='redoc.html',
-        extra_context={'schema_url':'openapi-schema'}
+        extra_context={'schema_url':'openapi-schema-v2'}
     ), name='redoc'),
 ]
