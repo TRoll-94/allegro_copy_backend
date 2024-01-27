@@ -1,0 +1,1497 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /api/user/:
+    get:
+      operationId: retrieveUser
+      description: user view set
+      parameters:
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createUser
+      description: user view set
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateUser
+      description: user view set
+      parameters:
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyUser
+      description: user view set
+      parameters:
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
+  /api/products/:
+    get:
+      operationId: listProductCreates
+      description: product view
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?offset=400&limit=100
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?offset=200&limit=100
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ProductCreate'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createProductCreate
+      description: perform create
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductCreate'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductCreate'
+          description: ''
+      tags:
+      - api
+  /api/products/{id}:
+    get:
+      operationId: retrieveProductCreate
+      description: product view
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductCreate'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateProductCreate
+      description: product view
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductCreate'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductCreate'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyProductCreate
+      description: product view
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
+  /api/products/sku/:
+    get:
+      operationId: listSkuProductBySku
+      description: list by sku
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductBySku'
+          description: ''
+      tags:
+      - api
+  /api/products/sku/{sku}:
+    get:
+      operationId: retrieveSkuProductBySku
+      description: products by sku
+      parameters:
+      - name: sku
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductBySku'
+          description: ''
+      tags:
+      - api
+  /api/products/category/:
+    get:
+      operationId: listCategorys
+      description: category view
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?offset=400&limit=100
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?offset=200&limit=100
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Category'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createCategory
+      description: category view
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Category'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+          description: ''
+      tags:
+      - api
+  /api/products/category/{id}:
+    get:
+      operationId: retrieveCategory
+      description: category view
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this Category.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateCategory
+      description: category view
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this Category.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Category'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyCategory
+      description: category view
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this Category.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
+  /api/products/properties/:
+    get:
+      operationId: listProductPropertys
+      description: product property view
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: category_id
+        required: false
+        in: query
+        description: category_id
+        schema:
+          type: string
+      - name: code
+        required: false
+        in: query
+        description: code
+        schema:
+          type: string
+      - name: name
+        required: false
+        in: query
+        description: name
+        schema:
+          type: string
+      - name: value
+        required: false
+        in: query
+        description: value
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?offset=400&limit=100
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?offset=200&limit=100
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ProductProperty'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createProductProperty
+      description: product property view
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductProperty'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductProperty'
+          description: ''
+      tags:
+      - api
+  /api/products/properties/{id}:
+    get:
+      operationId: retrieveProductProperty
+      description: product property view
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this Product property.
+        schema:
+          type: string
+      - name: category_id
+        required: false
+        in: query
+        description: category_id
+        schema:
+          type: string
+      - name: code
+        required: false
+        in: query
+        description: code
+        schema:
+          type: string
+      - name: name
+        required: false
+        in: query
+        description: name
+        schema:
+          type: string
+      - name: value
+        required: false
+        in: query
+        description: value
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductProperty'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateProductProperty
+      description: product property view
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this Product property.
+        schema:
+          type: string
+      - name: category_id
+        required: false
+        in: query
+        description: category_id
+        schema:
+          type: string
+      - name: code
+        required: false
+        in: query
+        description: code
+        schema:
+          type: string
+      - name: name
+        required: false
+        in: query
+        description: name
+        schema:
+          type: string
+      - name: value
+        required: false
+        in: query
+        description: value
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductProperty'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductProperty'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyProductProperty
+      description: product property view
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this Product property.
+        schema:
+          type: string
+      - name: category_id
+        required: false
+        in: query
+        description: category_id
+        schema:
+          type: string
+      - name: code
+        required: false
+        in: query
+        description: code
+        schema:
+          type: string
+      - name: name
+        required: false
+        in: query
+        description: name
+        schema:
+          type: string
+      - name: value
+        required: false
+        in: query
+        description: value
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
+  /api/products/lot/:
+    get:
+      operationId: listLots
+      description: lot view
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?offset=400&limit=100
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?offset=200&limit=100
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Lot'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createLot
+      description: perform create
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Lot'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lot'
+          description: ''
+      tags:
+      - api
+  /api/products/lot/{id}:
+    get:
+      operationId: retrieveLot
+      description: lot view
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this lot.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lot'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateLot
+      description: lot view
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this lot.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Lot'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lot'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyLot
+      description: lot view
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this lot.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
+  /api/products/rate/:
+    get:
+      operationId: listRates
+      description: rate view
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?offset=400&limit=100
+                  previous:
+                    type: string
+                    nullable: true
+                    format: uri
+                    example: http://api.example.org/accounts/?offset=200&limit=100
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Rate'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createRate
+      description: perform create
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Rate'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rate'
+          description: ''
+      tags:
+      - api
+  /api/products/rate/{id}:
+    get:
+      operationId: retrieveRate
+      description: rate view
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this rate.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rate'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateRate
+      description: rate view
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this rate.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Rate'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rate'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyRate
+      description: rate view
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this rate.
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
+  /api/user/token/:
+    post:
+      operationId: createTokenObtainPair
+      description: 'Takes a set of user credentials and returns an access and refresh
+        JSON web
+
+        token pair to prove the authentication of those credentials.'
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenObtainPair'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenObtainPair'
+          description: ''
+      tags:
+      - api
+  /api/user/token/refresh/:
+    post:
+      operationId: createTokenRefresh
+      description: 'Takes a refresh type JSON web token and returns an access type
+        JSON web
+
+        token if the refresh token is valid.'
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenRefresh'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenRefresh'
+          description: ''
+      tags:
+      - api
+  /api/user/token/status/:
+    post:
+      operationId: createTokenVerify
+      description: 'Takes a token and indicates if it is valid.  This view provides
+        no
+
+        information about a token''s fitness for a particular use.'
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenVerify'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenVerify'
+          description: ''
+      tags:
+      - api
+  /api/products/buy/{id}:
+    post:
+      operationId: buyProductProduct
+      description: buy product
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+          description: ''
+      tags:
+      - api
+  /api/payments/{id}/success:
+    post:
+      operationId: successPayment
+      description: success payment
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Payment'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payment'
+          description: ''
+      tags:
+      - api
+  /api/payments/{id}/failure:
+    post:
+      operationId: failurePayment
+      description: failure payment
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Payment'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payment'
+          description: ''
+      tags:
+      - api
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        email:
+          type: string
+          format: email
+          maxLength: 64
+        name:
+          type: string
+          maxLength: 64
+        surname:
+          type: string
+          maxLength: 64
+        password:
+          type: string
+          writeOnly: true
+          maxLength: 128
+        is_superuser:
+          type: boolean
+          readOnly: true
+          description: Designates that this user has all permissions without explicitly
+            assigning them.
+        user_type:
+          type: object
+          properties:
+            id:
+              type: integer
+              readOnly: true
+            name:
+              type: string
+              maxLength: 16
+            code:
+              type: string
+              maxLength: 16
+          required:
+          - name
+          - code
+          readOnly: true
+        user_type_id:
+          type: string
+          writeOnly: true
+      required:
+      - email
+      - password
+      - user_type_id
+    ProductCreate:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        properties:
+          type: array
+          items:
+            type: integer
+        name:
+          type: string
+          maxLength: 32
+        description:
+          type: string
+        price:
+          type: string
+          format: decimal
+          multipleOf: 0.01
+          maximum: 10000000
+          minimum: -10000000
+        total:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        total_reserved:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        sku:
+          type: string
+        category:
+          type: integer
+        owner:
+          type: integer
+      required:
+      - properties
+      - name
+      - description
+      - price
+      - total
+      - sku
+      - category
+      - owner
+    ProductBySku:
+      type: object
+      properties:
+        sku:
+          type: string
+        total:
+          type: integer
+        category:
+          type: string
+          readOnly: true
+        products:
+          type: string
+          readOnly: true
+      required:
+      - sku
+      - total
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 32
+        code:
+          type: string
+          maxLength: 16
+      required:
+      - name
+      - code
+    ProductProperty:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        category:
+          type: integer
+        name:
+          type: string
+          maxLength: 64
+        code:
+          type: string
+          maxLength: 16
+        value:
+          type: string
+          maxLength: 64
+      required:
+      - category
+      - name
+      - code
+      - value
+    Lot:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        rates:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                readOnly: true
+              sum:
+                type: string
+                format: decimal
+                multipleOf: 0.01
+                maximum: 10000000
+                minimum: -10000000
+              created_at:
+                type: string
+                format: date-time
+                readOnly: true
+              customer:
+                type: integer
+              lot:
+                type: integer
+            required:
+            - sum
+            - customer
+            - lot
+          readOnly: true
+        name:
+          type: string
+          maxLength: 32
+        start_price:
+          type: string
+          format: decimal
+          multipleOf: 0.01
+          maximum: 10000000
+          minimum: -10000000
+        sale_price:
+          type: string
+          format: decimal
+          multipleOf: 0.01
+          maximum: 10000000
+          minimum: -10000000
+        description:
+          type: string
+        start_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        end_at:
+          type: string
+          format: date-time
+        status:
+          enum:
+          - OPEN
+          - CLOSED
+          - FAIL
+          type: string
+        final_rate:
+          type: integer
+          nullable: true
+        owner:
+          type: integer
+      required:
+      - name
+      - start_price
+      - description
+      - end_at
+      - owner
+    Rate:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        sum:
+          type: string
+          format: decimal
+          multipleOf: 0.01
+          maximum: 10000000
+          minimum: -10000000
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        customer:
+          type: integer
+        lot:
+          type: integer
+      required:
+      - sum
+      - customer
+      - lot
+    TokenObtainPair:
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+          writeOnly: true
+      required:
+      - email
+      - password
+    TokenRefresh:
+      type: object
+      properties:
+        refresh:
+          type: string
+        access:
+          type: string
+          readOnly: true
+      required:
+      - refresh
+    TokenVerify:
+      type: object
+      properties:
+        token:
+          type: string
+      required:
+      - token
+    Product:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 32
+        description:
+          type: string
+        price:
+          type: string
+          format: decimal
+          multipleOf: 0.01
+          maximum: 10000000
+          minimum: -10000000
+        total:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        total_reserved:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        sku:
+          type: string
+        category:
+          type: integer
+        owner:
+          type: integer
+        properties:
+          type: array
+          items:
+            type: integer
+      required:
+      - name
+      - description
+      - price
+      - total
+      - sku
+      - category
+      - owner
+      - properties
+    Payment:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        variant:
+          type: string
+          maxLength: 255
+        status:
+          enum:
+          - waiting
+          - preauth
+          - confirmed
+          - rejected
+          - refunded
+          - error
+          - input
+          type: string
+        fraud_status:
+          enum:
+          - unknown
+          - accept
+          - reject
+          - review
+          type: string
+        fraud_message:
+          type: string
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        transaction_id:
+          type: string
+          maxLength: 255
+        currency:
+          type: string
+          maxLength: 10
+        total:
+          type: string
+          format: decimal
+          multipleOf: 0.01
+          maximum: 10000000
+          minimum: -10000000
+        delivery:
+          type: string
+          format: decimal
+          multipleOf: 0.01
+          maximum: 10000000
+          minimum: -10000000
+        tax:
+          type: string
+          format: decimal
+          multipleOf: 0.01
+          maximum: 10000000
+          minimum: -10000000
+        description:
+          type: string
+        billing_first_name:
+          type: string
+          maxLength: 256
+        billing_last_name:
+          type: string
+          maxLength: 256
+        billing_address_1:
+          type: string
+          maxLength: 256
+        billing_address_2:
+          type: string
+          maxLength: 256
+        billing_city:
+          type: string
+          maxLength: 256
+        billing_postcode:
+          type: string
+          maxLength: 256
+        billing_country_code:
+          type: string
+          maxLength: 2
+        billing_country_area:
+          type: string
+          maxLength: 256
+        billing_email:
+          type: string
+          format: email
+          maxLength: 254
+        billing_phone:
+          type: string
+          maxLength: 128
+        customer_ip_address:
+          type: string
+          nullable: true
+        extra_data:
+          type: string
+        message:
+          type: string
+        token:
+          type: string
+          maxLength: 36
+        captured_amount:
+          type: string
+          format: decimal
+          multipleOf: 0.01
+          maximum: 10000000
+          minimum: -10000000
+        count:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+        customer:
+          type: integer
+        product:
+          type: integer
+      required:
+      - variant
+      - currency
+      - customer
+      - product
