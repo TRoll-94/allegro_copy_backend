@@ -25,12 +25,15 @@ This project allows you to demonstrate the management of various types of users,
 4. You must authorise user via cookieAuth (apiKey) using a token
 5. You can stop the server using command:
  
-   *docker compose -f "docker-compose.yml" -f "docker-compose.dev.yml" --profile dev -p "ollegro_backend-dev" down *
+   *docker compose -f "docker-compose.yml" -f "docker-compose.dev.yml" --profile dev -p "ollegro_backend-dev" down*
 
 Additional commands:
-1. docker exec -it ollegro_backend-app-backend sh   -  Exec to backend dev container
-2. docker compose -f "docker-compose.yml" -f "docker-compose.dev.yml" --profile dev -p "ollegro_backend-dev"  -  show base command for dev containers
-3. docker compose -f "docker-compose.yml" -f "docker-compose.dev.yml" --profile dev -p "ollegro_backend-dev" restart  -  restart dev containers
+1. Exec to backend dev container:
+    *docker exec -it ollegro_backend-app-backend sh*
+2. Show base command for dev containers:
+    *docker compose -f "docker-compose.yml" -f "docker-compose.dev.yml" --profile dev -p "ollegro_backend-dev"*
+3. To restart dev containers:
+    *docker compose -f "docker-compose.yml" -f "docker-compose.dev.yml" --profile dev -p "ollegro_backend-dev" restart*
 --
 
 ## Running the Project on Linux
