@@ -9,7 +9,7 @@ services:
             - "5431:5432"
         volumes:
             - ./.docker/postgresql/:/var/lib/postgresql/data
-        user: 1000:1000
+        user: root
         environment:
             - POSTGRES_USER=test
             - POSTGRES_PASSWORD=test
@@ -17,6 +17,15 @@ services:
         profiles:
             - 'dev'
 
+    db_setup:
+        image: postgres:13-alpine
+        user: root
+        volumes:
+            - ./.docker/postgresql/:/var/lib/postgresql/data
+        entrypoint: [ "bash", "-c", "chmod 750 -R /var/lib/postgresql/data"] 
+        depends_on:
+            - db
+    
     redis:
         image: redis:6.2.6-alpine
         hostname: redis
