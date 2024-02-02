@@ -14,7 +14,15 @@ from ollegro_payments.serializers import PaymentSerializer
 
 
 def payment_details(request, payment_id):
-    """ payment details """
+    """
+    View for displaying payment details.
+
+    Parameters:
+    - payment_id: The ID of the payment to retrieve.
+
+    Returns:
+    - A template with payment details and a payment form.
+    """
     payment = get_object_or_404(get_payment_model(), id=payment_id)
 
     try:
@@ -30,18 +38,30 @@ def payment_details(request, payment_id):
 
 
 class PaymentResult(ModelViewSet):
-    """ payment result """
+    """
+    View for handling payment results.
+    """
     serializer_class = PaymentSerializer
 
     @action(methods=['post'], detail=True)
     def success(self, request, *args, **kwargs):
-        """ success payment """
+        """
+        Action for successful payment.
+
+        Returns:
+        - Response indicating successful payment.
+        """
         payment = self.get_object()
         return Response('ok')
 
     @action(methods=['post'], detail=True)
     def failure(self, request, *args, **kwargs):
-        """ failure payment """
+        """
+        Action for failed payment.
+
+        Returns:
+        - Response indicating failed payment.
+        """
         payment = self.get_object()
         if payment.status == PaymentStatus.CONFIRMED:
             return self.success(request, *args, **kwargs)
@@ -54,9 +74,19 @@ class PaymentResult(ModelViewSet):
         return Response('fail')
 
     def get_permissions(self):
-        """ perm """
+        """
+        Get permissions for accessing payment results.
+
+        Returns:
+        - Tuple of permissions (IsAuthenticated, IsPurchaseOwner).
+        """
         return IsAuthenticated(), IsPurchaseOwner()
 
     def get_queryset(self):
-        """ query """
+        """
+        Get queryset of payments related to the authenticated user.
+
+        Returns:
+        - Queryset of payments filtered by the authenticated user and related product.
+        """
         return Payment.objects.filter(customer=self.request.user).select_related('product')

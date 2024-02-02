@@ -8,11 +8,29 @@ from users.serializers import UserSerializer
 
 
 class UserModelView(ModelViewSet):
-    """ user view set """
+    """
+    View for managing user accounts.
+
+    Attributes:
+    - serializer_class: The serializer for user objects.
+
+    Methods:
+    - perform_update: Perform update, hash the password if it is provided.
+    - get_permissions: Get permissions based on the request method and action.
+    - get_queryset: Get queryset to return user information.
+    """
     serializer_class = UserSerializer
 
     def perform_update(self, serializer):
-        """ perform update """
+        """
+        Perform update on user object.
+
+        Parameters:
+        - serializer: The serializer instance.
+
+        Notes:
+        - If 'password' is provided in the data, hash the password before saving.
+        """
         if 'password' in serializer.validated_data:
             password = make_password(serializer.validated_data['password'])
             serializer.save(password=password)
@@ -20,7 +38,12 @@ class UserModelView(ModelViewSet):
             serializer.save()
 
     def get_permissions(self):
-        """ get permissions """
+        """
+        Get permissions based on the request method and action.
+
+        Returns:
+        - Tuple of permissions.
+        """
         if self.action == 'create':
             return AllowAny(),
         if self.request.method in SAFE_METHODS:
@@ -29,6 +52,11 @@ class UserModelView(ModelViewSet):
             return IsObjectOwner(),
 
     def get_queryset(self):
-        """ return user """
+        """
+        Get queryset to return user information.
+
+        Returns:
+        - Queryset of the authenticated user.
+        """
         self.kwargs['pk'] = self.request.user.id
         return User.objects.filter(id=self.request.user.id)
