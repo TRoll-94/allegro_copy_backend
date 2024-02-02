@@ -39,7 +39,9 @@ class ProductCreateSerializer(serializers.ModelSerializer):
         """
         sku = data.get('sku')
         category = data.get('category')
-        owner_id = data.get('owner_id')
+        owner_id = data.get('owner')
+        if owner_id:
+            owner_id = owner_id.id
         properties = data.get('properties', [])
 
         # Validate a product with the same SKU and properties

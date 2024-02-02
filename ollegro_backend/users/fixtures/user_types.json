@@ -25,8 +25,22 @@
       "password": "pbkdf2_sha256$600000$ftqPNqLRRCFvfghIvs8KPv$mBonA1jejVZucCaYBg5U6gCXnBr5XkwE5PeYn0n3vXA=",
       "user_type_id": "1",
       "is_active":  true,
-      "is_staff": false,
-      "is_superuser": false
+      "is_staff": true,
+      "is_superuser": true
+    }
+  },
+  {
+    "model": "users.User",
+    "pk": 2,
+    "fields": {
+      "email": "customer@example.com",
+      "name": "customer",
+      "surname": "customer",
+      "password": "pbkdf2_sha256$600000$ftqPNqLRRCFvfghIvs8KPv$mBonA1jejVZucCaYBg5U6gCXnBr5XkwE5PeYn0n3vXA=",
+      "user_type_id": "2",
+      "is_active":  true,
+      "is_staff": true,
+      "is_superuser": true
     }
   }
 ]

@@ -118,7 +118,13 @@ class ProductView(ModelViewSet):
         """
         Perform product creation.
         """
+        print(request.user)
+
         request.data['owner'] = request.user.id
+        request.data['owner_id'] = request.user.id
+        print(request.data['owner'])
+        print(request.data['owner_id'])
+
         return super(ProductView, self).create(request, *args, **kwargs)
 
     def get_queryset(self):
