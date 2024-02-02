@@ -23,7 +23,32 @@ This project allows you to demonstrate the management of various types of users,
 
    *http://localhost:8000/api/schema/swagger-ui/*
 4. You must authorise user via cookieAuth (apiKey) using a token
+5. You can stop the server using command:
+ 
+   *docker compose -f "docker-compose.yml" -f "docker-compose.dev.yml" --profile dev -p "ollegro_backend-dev" down *
 
+Additional commands:
+1. docker exec -it ollegro_backend-app-backend sh   -  Exec to backend dev container
+2. docker compose -f "docker-compose.yml" -f "docker-compose.dev.yml" --profile dev -p "ollegro_backend-dev"  -  show base command for dev containers
+3. docker compose -f "docker-compose.yml" -f "docker-compose.dev.yml" --profile dev -p "ollegro_backend-dev" restart  -  restart dev containers
+--
+
+## Running the Project on Linux
+1. Run the project by running the command in the terminal:
+
+   *make dev*
+2. You can view the logs and check for errors when starting the server using the command:
+
+   *make dev-logs // make dev-logs backend*
+3. To restart the server, use the command:
+
+   *dev-restart*
+4. To stop the server, use the command:
+
+   *dev-down*
+5. To execute to backend dev container, use the command:
+
+   *make dev-exec*
 
 ### Requirements
 
