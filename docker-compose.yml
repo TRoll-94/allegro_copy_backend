@@ -8,7 +8,7 @@ services:
         ports:
             - "5431:5432"
         volumes:
-            - ./.docker/postgresql/:/var/lib/postgresql/data
+            - db_volume:/var/lib/postgresql/data
         user: root
         environment:
             - POSTGRES_USER=test
@@ -94,3 +94,7 @@ services:
         volumes:
             - ./ollegro_backend/static:/code/ollegro_backend/static
         restart: unless-stopped
+
+
+volumes:
+  db_volume:
