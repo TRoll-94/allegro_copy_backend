@@ -14,5 +14,19 @@
       "name": "Customer",
       "code": "customer"
     }
+  },
+  {
+    "model": "users.User",
+    "pk": 1,
+    "fields": {
+      "email": "user@example.com",
+      "name": "example",
+      "surname": "example",
+      "password": "pbkdf2_sha256$600000$ftqPNqLRRCFvfghIvs8KPv$mBonA1jejVZucCaYBg5U6gCXnBr5XkwE5PeYn0n3vXA=",
+      "user_type_id": "1",
+      "is_active":  true,
+      "is_staff": false,
+      "is_superuser": false
+    }
   }
 ]

@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'payments',
+    'drf_spectacular',
+    'drf_spectacular_sidecar',
 
     # apps
     'users.apps.UsersConfig',
@@ -168,7 +170,8 @@ PAYMENT_VARIANTS = {
 
 
 REST_FRAMEWORK = {
-  'DEFAULT_AUTHENTICATION_CLASSES': (
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_AUTHENTICATION_CLASSES': (
     'rest_framework_simplejwt.authentication.JWTAuthentication',
     'rest_framework.authentication.SessionAuthentication',
   ),
@@ -235,3 +238,10 @@ CELERY_TIMEZONE = 'UTC'
 CELERY_IMPORTS = (
     'products.tasks',
 )
+
+# Spectacular
+SPECTACULAR_SETTINGS = {
+    'SWAGGER_UI_DIST': 'SIDECAR',  # shorthand to use the sidecar instead
+    'SWAGGER_UI_FAVICON_HREF': 'SIDECAR',
+    'REDOC_DIST': 'SIDECAR',
+}

@@ -17,10 +17,10 @@ args = `arg="$(filter-out $@,$(MAKECMDGOALS))" && echo $${arg:-${1}}`
 
 
 ## DEV block
-dev: ## [DEV] run dev containers
+dev: ## [DEV] run dev containers // base command + up --build -d
 	docker compose -f $(BASE_DOCKER) -f $(DEV_DOCKER) --profile dev -p $(DEV_NAME) up --build -d $(call args)
 
-dev-restart: ## restart dev containers
+dev-restart: ## restart dev containers // base command + up --build -d
 	docker compose -f $(BASE_DOCKER) -f $(DEV_DOCKER) --profile dev -p $(DEV_NAME) restart $(call args)
 
 dev-logs: ## show logs dev containers

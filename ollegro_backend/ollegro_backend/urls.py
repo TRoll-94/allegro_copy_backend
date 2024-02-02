@@ -23,8 +23,8 @@ from rest_framework.schemas.openapi import SchemaGenerator
 from django.http import HttpResponse
 from django.conf import settings
 from pathlib import Path
+from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
 
-from rest_framework.views import APIView
 
 urlpatterns = [
     path('api/admin/', admin.site.urls),
@@ -49,20 +49,28 @@ class TOSSchemaGenerator(SchemaGenerator):
         return schema
 
 
+# urlpatterns += [
+#     # path('api/openapi-v2', TOSSchemaGenerator.as_view(), name='openapi-schema-v2'),
+#     path('api/openapi-v2', get_schema_view(
+#         title="Your Project",
+#         description="API for all things",
+#         version="1.0.2",
+#         generator_class=TOSSchemaGenerator,
+#     ), name='openapi-schema-v2'),
+#     path('api/swagger-ui/', TemplateView.as_view(
+#         template_name='swagger-ui.html',
+#         extra_context={'schema_url':'openapi-schema-v2'}
+#     ), name='swagger-ui'),
+#     path('api/redoc/', TemplateView.as_view(
+#         template_name='redoc.html',
+#         extra_context={'schema_url':'openapi-schema-v2'}
+#     ), name='redoc'),
+# ]
+
 urlpatterns += [
-    # path('api/openapi-v2', TOSSchemaGenerator.as_view(), name='openapi-schema-v2'),
-    path('api/openapi-v2', get_schema_view(
-        title="Your Project",
-        description="API for all things",
-        version="1.0.2",
-        generator_class=TOSSchemaGenerator,
-    ), name='openapi-schema-v2'),
-    path('api/swagger-ui/', TemplateView.as_view(
-        template_name='swagger-ui.html',
-        extra_context={'schema_url':'openapi-schema-v2'}
-    ), name='swagger-ui'),
-    path('api/redoc/', TemplateView.as_view(
-        template_name='redoc.html',
-        extra_context={'schema_url':'openapi-schema-v2'}
-    ), name='redoc'),
+    # YOUR PATTERNS
+    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
+    # Optional UI:
+    path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+    path('api/schema/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
 ]
