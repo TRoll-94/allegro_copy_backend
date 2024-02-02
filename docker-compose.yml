@@ -87,6 +87,10 @@ services:
         build:
             context: ./ollegro_backend
             dockerfile: Dockerfile
+        depends_on:
+            - db
+            - rabbit
+            - redis
         volumes:
             - ./ollegro_backend/static:/code/ollegro_backend/static
         restart: unless-stopped
